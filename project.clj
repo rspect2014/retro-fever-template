@@ -3,4 +3,6 @@
   :url "http://retro-fever.com"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :scm {:name "git"
+        :url "https://github.com/rspect2014/retro-fever-template.git"}
   :eval-in-leiningen true)
