@@ -11,7 +11,7 @@
     :builds [{
       :source-paths ["src"]
         :compiler {
-          :output-to "resources/public/js/{{name}}.js"
-          :output-dir "resources/public/js/out"
+          :output-to "resources/public/game/{{name}}.js"
+          :output-dir "resources/public/game/out"
           :optimizations :none
           :pretty-print true}}]})
