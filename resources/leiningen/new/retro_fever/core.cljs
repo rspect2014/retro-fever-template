@@ -5,6 +5,8 @@
             [retro-fever.sprite :as sprite]
             [retro-fever.asset :as asset]))
 
+(enable-console-print!)
+
 (defonce game-state (atom {})) ; Atom to store the game state
 
 (defn update-fn []) ; Update function called on each iteration in the game loop
