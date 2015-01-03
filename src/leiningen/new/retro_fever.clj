@@ -13,7 +13,7 @@
     (main/info "Generating fresh retro-fever project.")
     (->files data
              ["src/{{sanitized}}/core.cljs" (render "core.cljs" data)]
-             ["resources/index.html" (render "index.html" data)]
+             ["resources/public/index.html" (render "index.html" data)]
              ["project.clj" (render "project.clj" data)]
              ["README.md" (render "README.md" data)]
              ["LICENSE" (render "LICENSE" data)]

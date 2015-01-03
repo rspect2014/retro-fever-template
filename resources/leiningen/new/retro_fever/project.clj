@@ -11,6 +11,6 @@
     :builds [{
       :source-paths ["src"]
         :compiler {
-          :output-to "resources/{{name}}.js"
+          :output-to "resources/public/js/{{name}}.js"
           :optimizations :whitespace
           :pretty-print true}}]})
