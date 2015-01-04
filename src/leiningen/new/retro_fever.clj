@@ -12,7 +12,7 @@
    (let [data {:name name
                :sanitized (sanitize name)
                :year (year)}
-         prefix (when-let [prefix-name (some #{"figwheel"} [opt])]
+         prefix (when-let [prefix-name (some #{"figwheel" "weasel" "figwheel+weasel"} [opt])]
                   (str prefix-name "-"))]
      (main/info "Generating fresh retro-fever project.")
      (->files data
