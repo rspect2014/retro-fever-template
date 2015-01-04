@@ -1,6 +1,7 @@
 (ns {{name}}.core
   (:require-macros [retro-fever.macros :refer [game]])
-  (:require [retro-fever.core :as core]
+  (:require [figwheel.client :as fw]
+            [retro-fever.core :as core]
             [retro-fever.input :as input]
             [retro-fever.sprite :as sprite]
             [retro-fever.asset :as asset]))
@@ -18,6 +19,7 @@
 (defn setup []) ; Function to setup initial game state
 
 (defn ^:export init [] ; The entry point into the game from the HTML page
+  (fw/start {:on-jsload (fn [] (print "reloaded"))})
   (.log js/console "Launching game")
 
   (core/init-canvas "game-canvas" 640 480) ; Initialize canvas on HTML page

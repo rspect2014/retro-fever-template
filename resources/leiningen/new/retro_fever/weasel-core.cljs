@@ -1,6 +1,7 @@
 (ns {{name}}.core
   (:require-macros [retro-fever.macros :refer [game]])
-  (:require [retro-fever.core :as core]
+  (:require [weasel.repl :as ws-repl]
+            [retro-fever.core :as core]
             [retro-fever.input :as input]
             [retro-fever.sprite :as sprite]
             [retro-fever.asset :as asset]))
@@ -16,6 +17,13 @@
 (defn load-resources []) ; Function to load all the game resources
 
 (defn setup []) ; Function to setup initial game state
+
+(if-not (ws-repl/alive?)
+  (do (print "Open REPL")
+      (ws-repl/connect "ws://localhost:9001"
+                       :verbose true
+                       :print #{:repl :console}
+                       :on-error #(print "Error! " %))))
 
 (defn ^:export init [] ; The entry point into the game from the HTML page
   (.log js/console "Launching game")

@@ -6,15 +6,19 @@
 
 (defn retro-fever
   "Create a basic retro-fever project"
-  [name]
-  (let [data {:name name
-              :sanitized (sanitize name)
-              :year (year)}]
-    (main/info "Generating fresh retro-fever project.")
-    (->files data
-             ["src/{{sanitized}}/core.cljs" (render "core.cljs" data)]
-             ["resources/index.html" (render "index.html" data)]
-             ["project.clj" (render "project.clj" data)]
-             ["README.md" (render "README.md" data)]
-             ["LICENSE" (render "LICENSE" data)]
-             [".gitignore" (render "gitignore" data)])))
+  ([name]
+   (retro-fever name nil))
+  ([name opt]
+   (let [data {:name name
+               :sanitized (sanitize name)
+               :year (year)}
+         prefix (when-let [prefix-name (some #{"figwheel" "weasel" "figwheel+weasel"} [opt])]
+                  (str prefix-name "-"))]
+     (main/info "Generating fresh retro-fever project.")
+     (->files data
+              ["src/{{sanitized}}/core.cljs" (render (str prefix "core.cljs") data)]
+              ["resources/public/index.html" (render "index.html" data)]
+              ["project.clj" (render (str prefix "project.clj") data)]
+              ["README.md" (render "README.md" data)]
+              ["LICENSE" (render "LICENSE" data)]
+              [".gitignore" (render "gitignore" data)]))))
