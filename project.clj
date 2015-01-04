@@ -1,4 +1,4 @@
-(defproject retro-fever/lein-template "0.2.0"
+(defproject retro-fever/lein-template "0.2.1"
   :description "Lein template for the retro-fever 2D game engine"
   :url "http://retro-fever.com"
   :license {:name "Eclipse Public License"

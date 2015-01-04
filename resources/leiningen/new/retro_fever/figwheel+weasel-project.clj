@@ -4,12 +4,12 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.clojure/clojurescript "0.0-2511"]
-                 [figwheel "0.1.7"]
+                 [figwheel "0.1.7-SNAPSHOT"]
                  [com.cemerick/piggieback "0.1.3"]
                  [weasel "0.4.2"]
                  [retro-fever "0.1.0-SNAPSHOT"]]
   :plugins [[lein-cljsbuild "1.0.3"]
-            [lein-figwheel "0.1.7"]]
+            [lein-figwheel "0.1.7-SNAPSHOT"]]
   :cljsbuild {
     :builds [{
       :source-paths ["src"]
