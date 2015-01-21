@@ -35,6 +35,10 @@ Usage example with "bird-flapper" as desired project name:
 Make sure to check out the `README.md` file in the project directory that the
 template creates, for instructions on how to get started.
 
+## Acknowledgements
+
+Large portions of this template is based on the luminus-template project
+Copyright © 2012 Yogthos
 
 ## License
 
