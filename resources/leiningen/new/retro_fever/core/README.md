@@ -6,7 +6,7 @@ environment in different ways:
 
 ## No integration
 
-If you didn't specify any integration make sure that the ClojureScript has been
+If you don't use any integration make sure that the ClojureScript has been
 build:
 
     lein cljsbuild once
@@ -14,7 +14,7 @@ build:
 And open `resources/public/index.html` in a browser and watch for the text
 "Launching game" in the browser console.
 
-
+<% if figwheel? %>
 ## Using Figwheel
 
 From the project directory start Figwheel (which among other things also handle
@@ -28,13 +28,13 @@ following url in a browser:
     http://localhost:3449/
 
 Not specifying a file in the above URL will serve you `index.html` by default.
-
-
+<% endif %>
+<% if weasel? %>
 ## Using Weasel
 
 Depending on the Weasel integration chosen upon project initialization, you will
 need to follow the instructions described above in either "No integration"
-(integration: `weasel`) or "Using Figwheel" (integration: `figwheel+weasel`).
+(integration: `+weasel`) or "Using Figwheel" (integration: `+figwheel +weasel`).
 But before opening the HTML file do the following.
 
 Start a REPL connected to the project. If you can't or don't want to use a REPL
@@ -73,3 +73,4 @@ the `game-state` atom among other things:
 @game-state
 (swap! game-state assoc :hey "ho")
 ```
+<% endif %>
