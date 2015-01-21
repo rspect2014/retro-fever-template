@@ -61,7 +61,7 @@
                   :sanitized (name-to-path name)
                   :year (year)
                   :features (set feature-params)
-                  :repl-options {:init-ns (str name ".core")}}
+                  :repl-options {:init-ns (symbol (str name ".core"))}}
          unsupported (-> (set feature-params)
                          (clojure.set/difference supported-features)
                          (not-empty))]

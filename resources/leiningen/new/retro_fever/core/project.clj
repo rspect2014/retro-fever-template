@@ -9,7 +9,7 @@
                  [retro-fever "0.1.0-SNAPSHOT"]<% if dependencies %>
                  <<dependencies>><% endif %>]
 
-  :min-lein-version <<min-lein-version>>
+  :min-lein-version "<<min-lein-version>>"
 
   :repl-options <<repl-options>>
 
