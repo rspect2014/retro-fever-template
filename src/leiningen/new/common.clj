@@ -45,7 +45,9 @@
 (defn indent [n form]
   (let [indents (apply str (repeat n " "))]
     (if (map? form)
-      (indented-code n form)
+      (-> (indented-code n form)
+          clojure.string/trim
+          clojure.string/trim-newline)
       (->> form
            (map str)
            (clojure.string/join (str "\n" indents))))))
