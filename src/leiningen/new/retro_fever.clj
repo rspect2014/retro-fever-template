@@ -33,7 +33,8 @@
       (update-in [:dev-dependencies] (partial indent dev-dependency-indent))
       (update-in [:plugins] (partial indent plugin-indent))
       (update-in [:dev-plugins] (partial indent dev-plugin-indent))
-      (update-in [:core-dependencies] (partial indent core-dependency-indent))
+      (update-in [:core-requires] (partial indent ns-require-indent))
+      (update-in [:dev-requires] (partial indent ns-require-indent))
       (update-in [:repl-options] (partial indent nrepl-options-indent))))
 
 (defn generate-project

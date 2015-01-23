@@ -4,9 +4,7 @@
             [retro-fever.input :as input]
             [retro-fever.sprite :as sprite]
             [retro-fever.asset :as asset]
-            <<core-dependencies>>))
-
-(enable-console-print!)
+            <<core-requires>>))
 
 (defonce game-state (atom {})) ; Atom to store the game state
 <% if not scene? %>

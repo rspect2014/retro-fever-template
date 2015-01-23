@@ -10,7 +10,7 @@
 (def root-indent 2)
 (def dev-indent 9)
 (def nrepl-options-indent 16)
-(def core-dependency-indent 12)
+(def ns-require-indent 12)
 
 (def render (renderer "retro-fever"))
 

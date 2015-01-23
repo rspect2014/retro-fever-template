@@ -5,6 +5,6 @@
   (if (some #{"+scene"} (:features options))
     [assets
      (-> options
-         (append-options :core-dependencies [['retro-fever.scene :as 'scene]])
+         (append-options :core-requires [['retro-fever.scene :as 'scene]])
          (assoc :scene? true))]
     state))
