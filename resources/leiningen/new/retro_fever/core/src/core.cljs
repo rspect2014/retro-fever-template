@@ -17,18 +17,9 @@
 (defn setup [] ; Function to setup initial game state
 <% if scene? %>  (swap! game-state :scene (scene/scene))
 <% endif %>)
-<% if weasel? %>
-(if-not (ws-repl/alive?)
-  (do (print "Open REPL")
-      (ws-repl/connect "ws://localhost:9001"
-                       :verbose true
-                       :print #{:repl :console}
-                       :on-error #(print "Error! " %))))
-<% endif %>
-(defn ^:export init [] ; The entry point into the game from the HTML page
-<% if figwheel? %>  (fw/start {:on-jsload (fn [] (print "reloaded"))})
 
-<% endif %>  (.log js/console "Launching game")
+(defn init! [] ; The entry point into the game from the HTML page
+  (.log js/console "Launching game")
 
   (core/init-canvas "game-canvas" 640 480) ; Initialize canvas on HTML page
   (input/init) ; Initialize input devices
