@@ -5,9 +5,9 @@
   [options]
   (if (some #{"+figwheel"} (:features options))
     (-> options
-        (append-options :dev-dependencies [['figwheel "0.1.7-SNAPSHOT"]])
-        (append-options :dev-plugins [['lein-figwheel "0.1.7-SNAPSHOT"]])
-        (append-options :core-dependencies [['figwheel.client :as 'fw]])
+        (append-options :dev-dependencies [['figwheel "0.2.2-SNAPSHOT"]])
+        (append-options :dev-plugins [['lein-figwheel "0.2.2-SNAPSHOT"]])
+        (append-options :dev-requires [['figwheel.client :as 'fw]])
         (assoc :figwheel? true))
     options))
 
@@ -15,9 +15,9 @@
   [options]
   (if (some #{"+weasel"} (:features options))
     (-> options
-        (append-options :dev-dependencies [['com.cemerick/piggieback "0.1.3"]
-                                           ['weasel "0.4.2"]])
-        (append-options :core-dependencies [['weasel.repl :as 'ws-repl]])
+        (append-options :dev-dependencies [['com.cemerick/piggieback "0.1.5"]
+                                           ['weasel "0.5.0"]])
+        (append-options :dev-requires [['weasel.repl :as 'ws-repl]])
         (update-in [:repl-options]
                    assoc :nrepl-middleware ['cemerick.piggieback/wrap-cljs-repl])
         (assoc :weasel? true))
