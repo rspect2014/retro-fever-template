@@ -19,7 +19,11 @@
    ["src/<<sanitized>>/core.cljs" "core/src/core.cljs"]
 
    ;; resources
-   ["resources/public/index.html" "core/resources/index.html"]])
+   ["resources/public/index.html" "core/resources/index.html"]
+
+   ;; environment
+   ["env/dev/<<sanitized>>/dev.cljs" "core/env/dev.cljs"]
+   ["env/prod/<<sanitized>>/prod.cljs" "core/env/prod.cljs"]])
 
 (defn render-template [template options]
   (selmer/render
