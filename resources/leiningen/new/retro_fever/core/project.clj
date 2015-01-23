@@ -5,7 +5,7 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
   :dependencies [[org.clojure/clojure "1.6.0"]
-                 [org.clojure/clojurescript "0.0-2511"]
+                 [org.clojure/clojurescript "0.0-2665"]
                  [retro-fever "0.1.0-SNAPSHOT"]<% if dependencies %>
                  <<dependencies>><% endif %>]
 
@@ -13,7 +13,7 @@
 
   :repl-options <<repl-options>>
 
-  :plugins [[lein-cljsbuild "1.0.3"]<% if plugins %>
+  :plugins [[lein-cljsbuild "1.0.4"]<% if plugins %>
             <<plugins>><% endif %>]
 
   :cljsbuild {
