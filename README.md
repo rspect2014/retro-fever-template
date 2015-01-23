@@ -32,7 +32,7 @@ if specified:
   * `+figwheel` - Adds support for figwheel to dynamically load cljs changes
   * `+weasel` - Add support for weasel, a interactive clojurescript REPL
 
-Usage example with "bird-flapper" as desired project name:
+Usage example with "rf-test" as desired project name:
 
     lein new retro-fever rf-test +scene +figwheel +weasel
 
