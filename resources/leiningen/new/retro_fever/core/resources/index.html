@@ -1,16 +1,17 @@
 <html>
   <head>
-    <script src="game/out/goog/base.js" type="text/javascript"></script>
-    <script src="game/<<name>>.js" type="text/javascript"></script>
-    <script type="text/javascript">goog.require("<<sanitized>>.core");</script>
-
-    <!-- Insert LightTable browser REPL script here -->
+    <title><<name>></title>
   </head>
   <body>
     <canvas id="game-canvas"></canvas>
 
+    <!-- Engine specific scripts -->
+    <script src="game/out/goog/base.js" type="text/javascript"></script>
+    <script src="game/<<sanitized>>.js" type="text/javascript"></script>
     <script type="text/javascript">
-        <<sanitized>>.core.init();
+      if (typeof goog !== 'undefined') {
+        goog.require("<<sanitized>>.game");
+      }
     </script>
   </body>
 </html>
