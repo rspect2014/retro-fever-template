@@ -16,15 +16,20 @@
   :plugins [[lein-cljsbuild "1.0.4"]<% if plugins %>
             <<plugins>><% endif %>]
 
-  :cljsbuild {
-    :builds [{
-      :source-paths ["src"]
-        :compiler {
-          :output-to "resources/public/game/<<name>>.js"
-          :output-dir "resources/public/game/out"
-          :optimizations :none
-          :pretty-print true}}]}
-<% if any dev-dependencies dev-plugins%>
+  :cljsbuild {:builds
+              {:game {:source-paths ["src"]
+                      :compiler {:output-to "resources/public/game/<<sanitized>>.js"
+                                 :output-dir "resources/public/game/out"
+                                 :optimizations :none
+                                 :pretty-print true}}}}
+
+  :clean-targets ^{:protect false} ["resources/public/game/"]
+
   :profiles
-  {:dev {:dependencies [<<dev-dependencies>>]
-         :plugins [<<dev-plugins>>]}})<% endif %>
+  {:dev  {<% if any dev-dependencies dev-plugins%>:dependencies [<<dev-dependencies>>]
+          :plugins [<<dev-plugins>>]
+          <% endif %>:cljsbuild {:builds {:game {:source-paths ["env/dev"]}}}}
+   :prod {:cljsbuild {:builds
+                      {:game {:source-paths ["env/prod"]
+                              :compiler {:optimizations :advanced}}}}}}
+)
