@@ -22,12 +22,23 @@ cljs building):
 
     lein figwheel
 
-It will take a little time for figwheel to start but afterwards open the
-following url in a browser:
+It will take a little time for figwheel to start but afterwards, you get a
+ClojureScript REPL.
+
+You can then open the following url in a browser:
 
     http://localhost:3449/
 
-Not specifying a file in the above URL will serve you `index.html` by default.<% endif %><% if weasel? %>
+Not specifying a file in the above URL will serve you `index.html` by default.
+
+Then go back to the ClojureScript REPL started by figwheel, which is now connected to
+the `index.html`
+
+If you don't want figwheel to start a ClojureScript REPL automatic, add the
+following to `project.clj`
+
+    :figwheel {:repl false}
+<% endif %><% if weasel? %>
 
 
 ## Using Weasel
@@ -59,11 +70,13 @@ nil
 
 Now open the HTML as described in instructions above matching your chosen
 integration.
+<% if figwheel?%>Starting figwheel will automatically do the steps above
+a give you a connected ClojureScript REPL.<% endif %>
 
 From the ClojureScript REPL switch to you game namespace:
 
 ``` clojure
-(ns {{name}}.core)
+(in-ns '{{name}}.core)
 ```
 
 Now it's possible to start live interacting with the game ie. watch and change
