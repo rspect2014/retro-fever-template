@@ -1,4 +1,4 @@
-# {{name}}
+# <<name>>
 
 Depending on the chosen integration you will initialize the development
 environment in different ways:
@@ -37,8 +37,7 @@ the `index.html`
 If you don't want figwheel to start a ClojureScript REPL automatic, add the
 following to `project.clj`
 
-    :figwheel {:repl false}
-<% endif %><% if weasel? %>
+    :figwheel {:repl false}<% endif %><% if weasel? %>
 
 
 ## Using Weasel
@@ -70,13 +69,15 @@ nil
 
 Now open the HTML as described in instructions above matching your chosen
 integration.
-<% if figwheel?%>Starting figwheel will automatically do the steps above
-a give you a connected ClojureScript REPL.<% endif %>
-
-From the ClojureScript REPL switch to you game namespace:
+<% if figwheel?%>
+Normally Starting figwheel will automatically do the steps above
+and give you a connected ClojureScript REPL. This have been disabled due to
+the choice of using weasel.
+<% endif %>
+From the ClojureScript REPL switch to your game namespace:
 
 ``` clojure
-(in-ns '{{name}}.core)
+(in-ns '<<name>>.core)
 ```
 
 Now it's possible to start live interacting with the game ie. watch and change
@@ -92,6 +93,9 @@ the `game-state` atom among other things:
 
 By default two different profiles are specified in the `project.clj` file.
 One is for development and the other is for creating a production version.
+
+Remember to clean your compiled ClojureScript code when switching profile, this
+can be done with the command `lein clean`.
 
 
 ### Development
