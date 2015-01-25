@@ -25,12 +25,15 @@ if specified:
 
 ### Engine features
 
-  * `+scene` - Sets up a basic retro-fever game with a scene graph
+  * `-scene` - Sets up a basic retro-fever game with update and render functions
+               instead of using a scene graph
 
 ### Development feature
 
-  * `+figwheel` - Adds support for figwheel to dynamically load cljs changes
-  * `+weasel` - Add support for weasel, a interactive clojurescript REPL
+  * `+figwheel` - Adds support for figwheel which dynamically loads changes in cljs
+                  files and gives you a connected ClojureScript REPL.
+
+  * `+weasel` - Add support for weasel, a interactive ClojureScript REPL
 
 Usage example with "rf-test" as desired project name:
 
