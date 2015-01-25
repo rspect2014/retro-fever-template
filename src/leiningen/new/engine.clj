@@ -2,9 +2,9 @@
   (:require [leiningen.new.common :refer :all]))
 
 (defn engine-features [[assets options :as state]]
-  (if (some #{"+scene"} (:features options))
+  (if (some #{"-scene"} (:features options))
+    state
     [assets
      (-> options
          (append-options :core-requires [['retro-fever.scene :as 'scene]])
-         (assoc :scene? true))]
-    state))
+         (assoc :scene? true))]))

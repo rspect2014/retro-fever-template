@@ -6,7 +6,7 @@
 
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.clojure/clojurescript "0.0-2665"]
-                 [retro-fever "0.1.0-SNAPSHOT"]<% if dependencies %>
+                 [retro-fever "0.2.0"]<% if dependencies %>
                  <<dependencies>><% endif %>]
 
   :min-lein-version "<<min-lein-version>>"
@@ -23,12 +23,14 @@
                                  :optimizations :none
                                  :pretty-print true}}}}
 
-  :clean-targets ^{:protect false} ["resources/public/game/"]
+  :clean-targets ^{:protect false} ["resources/public/game/<<sanitized>>.js"
+                                    "resources/public/game/out"]
 
   :profiles
   {:dev  {<% if any dev-dependencies dev-plugins%>:dependencies [<<dev-dependencies>>]
           :plugins [<<dev-plugins>>]
-          <% endif %>:cljsbuild {:builds {:game {:source-paths ["env/dev"]}}}}
+          <% endif %>:cljsbuild {:builds {:game {:source-paths ["env/dev"]}}}<%if all figwheel? weasel?%>
+          :figwheel {:repl false}<%endif%>}
    :prod {:cljsbuild {:builds
                       {:game {:source-paths ["env/prod"]
                               :compiler {:optimizations :advanced}}}}}}
