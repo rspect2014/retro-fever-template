@@ -4,8 +4,8 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
-  :dependencies [[org.clojure/clojure "1.6.0"]
-                 [org.clojure/clojurescript "0.0-2665"]
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [org.clojure/clojurescript "1.9.293"]
                  [retro-fever "0.2.0"]<% if dependencies %>
                  <<dependencies>><% endif %>]
 
@@ -29,7 +29,10 @@
   :profiles
   {:dev  {<% if any dev-dependencies dev-plugins%>:dependencies [<<dev-dependencies>>]
           :plugins [<<dev-plugins>>]
-          <% endif %>:cljsbuild {:builds {:game {:source-paths ["env/dev"]}}}<%if all figwheel? weasel?%>
+          <% endif %>:cljsbuild {:builds
+                                 {:game
+                                  {:source-paths ["env/dev"]
+                                   <% if figwheel? %>:figwheel true<% endif %>}}}<%if all figwheel? weasel?%>
           :figwheel {:repl false}<%endif%>}
    :prod {:cljsbuild {:builds
                       {:game {:source-paths ["env/prod"]

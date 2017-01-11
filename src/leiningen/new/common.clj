@@ -1,5 +1,6 @@
 (ns leiningen.new.common
   (:require
+   [selmer.parser :as selmer]
    [leiningen.new.templates :refer [renderer ->files]]
    [clojure.pprint :refer [code-dispatch pprint with-pprint-dispatch]]))
 
@@ -12,21 +13,27 @@
 (def nrepl-options-indent 16)
 (def ns-require-indent 12)
 
-(def render (renderer "retro-fever"))
+(defn render-template [template options]
+  (selmer/render
+   (str "<% safe %>" template "<% endsafe %>")
+   options
+   {:tag-open \< :tag-close \> :filter-open \< :filter-close \>}))
+
+(defn init-render [] (renderer "retro-fever" render-template))
 
 (defn slurp-resource [path]
   (-> (str "leiningen/new/retro_fever/" path)
       clojure.java.io/resource
       slurp))
 
-(defn render-asset [options asset]
+(defn render-asset [render options asset]
   (if (string? asset)
     asset
     (let [[target source] asset]
       [target (render source options)])))
 
-(defn render-assets [assets options]
-  (apply ->files options (map (partial render-asset options) assets)))
+(defn render-assets [render assets options]
+  (apply ->files options (map (partial render-asset render options) assets)))
 
 (defn pprint-code [code]
   (-> (pprint code)

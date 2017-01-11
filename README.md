@@ -33,7 +33,8 @@ if specified:
   * `+figwheel` - Adds support for figwheel which dynamically loads changes in cljs
                   files and gives you a connected ClojureScript REPL.
 
-  * `+weasel` - Add support for weasel, a interactive ClojureScript REPL
+  * `+weasel` - Add support for weasel, a interactive browser connected ClojureScript
+                REPL using websockets
 
 Usage example with "rf-test" as desired project name:
 
@@ -45,11 +46,11 @@ template creates, for instructions on how to get started.
 ## Acknowledgements
 
 Large portions of this template is based on the luminus-template project
-Copyright © 2012 Yogthos
+Copyright © 2016 Yogthos
 
 ## License
 
-Copyright © 2015 RetroSpect
+Copyright © 2017 RetroSpect
 
 Distributed under the Eclipse Public License either version 1.0 or any later
 version.

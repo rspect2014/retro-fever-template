@@ -25,12 +25,6 @@
    ["env/dev/<<sanitized>>/dev.cljs" "core/env/dev.cljs"]
    ["env/prod/<<sanitized>>/prod.cljs" "core/env/prod.cljs"]])
 
-(defn render-template [template options]
-  (selmer/render
-   (str "<% safe %>" template "<% endsafe %>")
-   options
-   {:tag-open \< :tag-close \> :filter-open \< :filter-close \>}))
-
 (defn format-options [options]
   (-> options
       (update-in [:dependencies] (partial indent dependency-indent))
@@ -50,7 +44,7 @@
          (-> [core-assets options]
               engine-features
               repl-features)]
-        (render-assets assets (format-options options)))))
+        (render-assets (init-render) assets (format-options options)))))
 
 (defn format-features
   [features]
